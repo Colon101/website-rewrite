@@ -1,2 +1,2 @@
 # website-rewirte
-rewrite of bridge websoit
+rewrite of bridge websoit bcuz it bad lmfaoo
