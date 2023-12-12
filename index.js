@@ -1,9 +1,10 @@
-const LOREM = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+const LOREM =
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
 
 function tag(name, ...children) {
     const result = document.createElement(name);
     for (const child of children) {
-        if (typeof (child) === 'string') {
+        if (typeof child === "string") {
             result.appendChild(document.createTextNode(child));
         } else {
             result.appendChild(child);
@@ -23,7 +24,23 @@ function tag(name, ...children) {
     return result;
 }
 
-const MUNDANE_TAGS = ["canvas", "h1", "h2", "h3", "p", "a", "div", "span", "select"];
+const MUNDANE_TAGS = [
+    "canvas",
+    "h1",
+    "h2",
+    "h3",
+    "p",
+    "a",
+    "div",
+    "span",
+    "select",
+    "header",
+    "button",
+    "nav",
+    "li",
+    "ul",
+    "ol"
+];
 for (let tagName of MUNDANE_TAGS) {
     window[tagName] = (...children) => tag(tagName, ...children);
 }
@@ -40,14 +57,14 @@ function router(routes) {
     let result = div();
 
     function syncHash() {
-        let hashLocation = document.location.hash.split('#')[1];
+        let hashLocation = document.location.hash.split("#")[1];
         if (!hashLocation) {
-            hashLocation = '/';
+            hashLocation = "/";
         }
 
         if (!(hashLocation in routes)) {
             // TODO(#2): make the route404 customizable in the router component
-            const route404 = '/404';
+            const route404 = "/404";
 
             console.assert(route404 in routes);
             hashLocation = route404;
@@ -56,7 +73,7 @@ function router(routes) {
         result.replaceChildren(routes[hashLocation]());
 
         return result;
-    };
+    }
 
     syncHash();
 
@@ -68,8 +85,20 @@ function router(routes) {
     return result;
 }
 
-const r = router(
-    {
-        "/": () => div("test")
-    }
-)
+const navbar = nav(
+    a(img("assets/img/logo.png")),
+    a(),
+    a(),
+    a()
+).att$("class", "navbar")
+function home() {
+    return div(navbar);
+}
+function about() { }
+function overlay() { }
+function minecraft() { }
+const r = router({
+    "/": home,
+    "/about": about,
+});
+entry.appendChild(r);
