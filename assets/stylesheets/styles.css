@@ -1,0 +1,122 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 400;
+  background-image: url("../img/shaders-night.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+}
+
+iframe {
+  padding-top: 15px;
+  border: none;
+}
+
+.container, #home-container {
+  color: white;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#home-container {
+  padding-top: 100px;
+}
+#home-container a {
+  color: #9595f0;
+}
+#home-container #page-description {
+  text-shadow: 0px 1px white;
+}
+#home-container #page-description h1 {
+  font-size: 80px;
+}
+
+.text-box {
+  margin: auto;
+  max-width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 2px 2px black;
+  text-align: center;
+  -webkit-backdrop-filter: blur(15px);
+          backdrop-filter: blur(15px);
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.navbar img {
+  order: 1;
+  width: 40px;
+  height: 40px;
+  margin: auto;
+  padding: 5px 0px 0px 20px;
+  transform: all 500ms;
+}
+.navbar img:hover {
+  transform: scale(1.1);
+}
+.navbar ul {
+  order: 2;
+  list-style: none;
+}
+.navbar ul li {
+  display: inline;
+  height: 50px;
+  line-height: 50px;
+}
+.navbar ul a {
+  color: #FAE6D5;
+  font-size: 20px;
+  text-decoration: none;
+  padding: 15px;
+  transition: all 200ms;
+}
+.navbar ul a:hover {
+  text-shadow: 5px 3px 10px white;
+  background-color: black;
+}
+
+.underline-button, .navbar ul a {
+  background: transparent;
+  position: relative;
+  transition: 0.5s ease;
+}
+.underline-button::before, .navbar ul a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background-color: #ffc506;
+  transition: 0.5s ease;
+}
+.underline-button:hover::before, .navbar ul a:hover::before {
+  width: 100%;
+}
+
+#popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}/*# sourceMappingURL=styles.css.map */
