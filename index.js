@@ -110,7 +110,7 @@ function showCopyMessage() {
   // Hide the message after 1 second
   setTimeout(function () {
     hideCopyMessage();
-  }, 250);
+  }, 1000);
 }
 
 function hideCopyMessage() {
@@ -147,7 +147,7 @@ function minecraft() {
         navigator.clipboard.writeText("bridgescrims.net");
         showCopyMessage()
       },
-        div("Copied!").att$("id", "copyMessage"))
+      ), div("Copied").att$("id", "copyMessage")
     ).att$("class", "text-box")
   );
 }
