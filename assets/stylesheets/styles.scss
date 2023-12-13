@@ -1,11 +1,16 @@
-$text-color: #FAE6D5;
+$text-color: #fae6d5;
 $nav-background: rgb(0, 0, 0);
 $bridge-blue: #534263;
-$bridge-red: #9C4846;
+$bridge-red: #9c4846;
 $bridge-accent: rgb(96, 96, 189);
 
 @keyframes loading-animation {
-
+  from {
+    transform: translateY(15);
+  }
+  to {
+    transform: translateY(0);
+  }
 }
 
 * {
@@ -14,47 +19,43 @@ $bridge-accent: rgb(96, 96, 189);
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 400;
 
-  background-image: url('../img/shaders-night.png');
+  background-image: url("../img/shaders-night.png");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   color: rgb(0, 0, 0);
+  animation: loading-animation 300ms ease 50ms;
 }
 
 iframe {
-  padding-top:15px;
+  padding-top: 15px;
   border: none;
 }
 
 .container {
-
-
-
-  color:white;
+  color: white;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
 
 #home-container {
-    --discord-blue: rgb(124, 124, 238);
+  --discord-blue: rgb(124, 124, 238);
   --discord-blue-shadow: rgb(96, 96, 189);
   --discord-light-blue: #9595f0;
   @extend .container;
-  padding-top:100px;
-  a{
-
-    color:#9595f0;
+  padding-top: 100px;
+  a {
+    color: #9595f0;
   }
   #page-description {
     text-shadow: 0px 1px white;
     h1 {
       font-size: 80px;
-      
     }
     a {
       text-shadow: 0px 3px rgb(96, 96, 189);
@@ -63,7 +64,6 @@ iframe {
     a:hover {
       color: rgb(124, 124, 238);
     }
-    
   }
 }
 
@@ -78,9 +78,6 @@ iframe {
   text-align: center;
   backdrop-filter: blur(15px);
 }
-
-
-
 
 .navbar {
   display: flex;
@@ -97,12 +94,12 @@ iframe {
     width: 40px;
     height: 40px;
     padding: 10px;
-    margin :5px 0px 0px 5px;
+    margin: 5px 0px 0px 5px;
     border-radius: 5px;
     transition: all 500ms;
 
     &:hover {
-      background-color: rgba($color: $nav-background, $alpha: 1.0);
+      background-color: rgba($color: $nav-background, $alpha: 1);
       transform: scale(1.1);
     }
   }
@@ -116,46 +113,44 @@ iframe {
       height: 50px;
       line-height: 50px;
     }
-  
+
     a {
       @extend .underline-button;
       color: $text-color;
       font-size: 20px;
       text-decoration: none;
-      
+
       padding: 20px;
       transition: all 200ms;
-  
+
       &:hover {
         text-shadow: 5px 3px 10px white;
-        background-color: rgba($color: $nav-background, $alpha: 1.0);
+        background-color: rgba($color: $nav-background, $alpha: 1);
       }
     }
   }
 }
 
-
 .underline-button {
   background: transparent;
   position: relative;
-  transition: .5s ease;
+  transition: 0.5s ease;
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     left: 0;
     bottom: 0;
     height: 2px;
     width: 0;
     background-color: $bridge-accent;
-    transition: .5s ease;
+    transition: 0.5s ease;
   }
-  
+
   &:hover::before {
     width: 100%;
   }
 }
-
 
 #popup {
   display: none;
