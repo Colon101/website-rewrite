@@ -2,6 +2,11 @@ $text-color: #FAE6D5;
 $nav-background: rgb(0, 0, 0);
 $bridge-blue: #534263;
 $bridge-red: #9C4846;
+$bridge-accent: rgb(96, 96, 189);
+
+@keyframes loading-animation {
+
+}
 
 * {
   margin: 0px;
@@ -13,9 +18,11 @@ body {
   font-weight: 400;
 
   background-image: url('../img/shaders-night.png');
-  background-repeat: no-repeat;
   background-size: cover;
-  color: white;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: rgb(0, 0, 0);
 }
 
 iframe {
@@ -34,6 +41,9 @@ iframe {
 }
 
 #home-container {
+    --discord-blue: rgb(124, 124, 238);
+  --discord-blue-shadow: rgb(96, 96, 189);
+  --discord-light-blue: #9595f0;
   @extend .container;
   padding-top:100px;
   a{
@@ -45,6 +55,13 @@ iframe {
     h1 {
       font-size: 80px;
       
+    }
+    a {
+      text-shadow: 0px 3px rgb(96, 96, 189);
+      transition: all 200ms;
+    }
+    a:hover {
+      color: rgb(124, 124, 238);
     }
     
   }
@@ -67,6 +84,10 @@ iframe {
 
 .navbar {
   display: flex;
+  border-radius: 5px;
+  width: 90%;
+  margin: auto;
+  margin-top: 15px;
   align-items: center;
   justify-content: space-between;
   background-color: rgba($color: $nav-background, $alpha: 0.3);
@@ -75,11 +96,13 @@ iframe {
     order: 1;
     width: 40px;
     height: 40px;
-    margin: auto;
-    padding :5px 0px 0px 20px;
-    transform: all 500ms;
+    padding: 10px;
+    margin :5px 0px 0px 5px;
+    border-radius: 5px;
+    transition: all 500ms;
 
     &:hover {
+      background-color: rgba($color: $nav-background, $alpha: 1.0);
       transform: scale(1.1);
     }
   }
@@ -100,7 +123,7 @@ iframe {
       font-size: 20px;
       text-decoration: none;
       
-      padding: 15px;
+      padding: 20px;
       transition: all 200ms;
   
       &:hover {
@@ -124,7 +147,7 @@ iframe {
     bottom: 0;
     height: 2px;
     width: 0;
-    background-color: #ffc506;
+    background-color: $bridge-accent;
     transition: .5s ease;
   }
   

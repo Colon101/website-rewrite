@@ -1,3 +1,4 @@
+@keyframes loading-animation {}
 * {
   margin: 0px;
   padding: 0px;
@@ -7,9 +8,11 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-weight: 400;
   background-image: url("../img/shaders-night.png");
-  background-repeat: no-repeat;
   background-size: cover;
-  color: white;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: rgb(0, 0, 0);
 }
 
 iframe {
@@ -25,6 +28,9 @@ iframe {
 }
 
 #home-container {
+  --discord-blue: rgb(124, 124, 238);
+  --discord-blue-shadow: rgb(96, 96, 189);
+  --discord-light-blue: #9595f0;
   padding-top: 100px;
 }
 #home-container a {
@@ -35,6 +41,13 @@ iframe {
 }
 #home-container #page-description h1 {
   font-size: 80px;
+}
+#home-container #page-description a {
+  text-shadow: 0px 3px rgb(96, 96, 189);
+  transition: all 200ms;
+}
+#home-container #page-description a:hover {
+  color: rgb(124, 124, 238);
 }
 
 .text-box {
@@ -52,6 +65,10 @@ iframe {
 
 .navbar {
   display: flex;
+  border-radius: 5px;
+  width: 90%;
+  margin: auto;
+  margin-top: 15px;
   align-items: center;
   justify-content: space-between;
   background-color: rgba(0, 0, 0, 0.3);
@@ -60,11 +77,13 @@ iframe {
   order: 1;
   width: 40px;
   height: 40px;
-  margin: auto;
-  padding: 5px 0px 0px 20px;
-  transform: all 500ms;
+  padding: 10px;
+  margin: 5px 0px 0px 5px;
+  border-radius: 5px;
+  transition: all 500ms;
 }
 .navbar img:hover {
+  background-color: black;
   transform: scale(1.1);
 }
 .navbar ul {
@@ -80,7 +99,7 @@ iframe {
   color: #FAE6D5;
   font-size: 20px;
   text-decoration: none;
-  padding: 15px;
+  padding: 20px;
   transition: all 200ms;
 }
 .navbar ul a:hover {
@@ -100,7 +119,7 @@ iframe {
   bottom: 0;
   height: 2px;
   width: 0;
-  background-color: #ffc506;
+  background-color: rgb(96, 96, 189);
   transition: 0.5s ease;
 }
 .underline-button:hover::before, .navbar ul a:hover::before {
