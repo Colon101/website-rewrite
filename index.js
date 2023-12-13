@@ -147,7 +147,7 @@ function minecraft() {
         navigator.clipboard.writeText("bridgescrims.net");
         showCopyMessage()
       },
-      ), div("Copied").att$("id", "copyMessage")
+      ), div("Copied to clipboard!").att$("id", "copyMessage")
     ).att$("class", "text-box")
   );
 }
