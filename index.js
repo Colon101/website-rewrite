@@ -99,10 +99,24 @@ const navbar = nav(
   ul(
     li(a("Minecraft").att$("href", "#/minecraft")),
     li(a("Overlays").att$("href", "#/overlays")),
-    li(a("Store").att$("href", "https://store.bridgescrims.net/")),
+    li(a("Store").att$("href", "https://store.scrims.network/")),
     li(a("About").att$("href", "#/about"))
   )
 ).att$("class", "navbar");
+function showCopyMessage() {
+  var copyMessage = document.getElementById('copyMessage');
+  copyMessage.classList.add('show');
+
+  // Hide the message after 1 second
+  setTimeout(function () {
+    hideCopyMessage();
+  }, 250);
+}
+
+function hideCopyMessage() {
+  var copyMessage = document.getElementById('copyMessage');
+  copyMessage.classList.remove('show');
+}
 function home() {
   return div(
     navbar,
@@ -129,9 +143,11 @@ function minecraft() {
     navbar,
     div(
       h1("Join our feature-rich Minecraft server at"),
-      button("BridgeScrims.net").onclick$(function () {
+      button("BridgeScrims.net").att$("id", "IpButton").onclick$(function () {
         navigator.clipboard.writeText("bridgescrims.net");
-      })
+        showCopyMessage()
+      },
+        div("Copied!").att$("id", "copyMessage"))
     ).att$("class", "text-box")
   );
 }
