@@ -92,17 +92,22 @@ const discordIFrame = iframe(
     "sandbox",
     "allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
   );
-const navbar = nav(
-  a(
-    img("assets/img/logo.png").att$("width", "40px").att$("height", "40px")
-  ).att$("href", "#/"),
-  ul(
-    li(a("Minecraft").att$("href", "#/minecraft")),
-    li(a("Overlays").att$("href", "#/overlays")),
-    li(a("Store").att$("href", "https://store.scrims.network/")),
-    li(a("About").att$("href", "#/about"))
-  )
-).att$("class", "navbar");
+const navbar = header(
+  div(
+    a(
+      img("assets/img/logo.png").att$("width", "50px").att$("height", "50px")
+    ).att$("href", "#/")).att$("class", "logo"),
+  div(
+    input("checkbox").att$("class", "toggle-menu"),
+    div().att$("class", "hamburger"),
+    ul(
+      li(a("Minecraft").att$("href", "#/minecraft")),
+      li(a("Overlays").att$("href", "#/overlays")),
+      li(a("Store").att$("href", "https://store.scrims.network/")),
+      li(a("About").att$("href", "#/about"))
+    ).att$("class", "menu"))
+    .att$("class", "navigation"),
+).att$("class", "header");
 function showCopyMessage() {
   var copyMessage = document.getElementById('copyMessage');
   copyMessage.classList.add('show');
@@ -127,7 +132,7 @@ function home() {
         h1("Community"),
         h1("on ", a("Discord").att$("href", "https://discord.gg/bridgescrims"))
       ).att$("id", "page-description"),
-      discordIFrame
+      discordIFrame.att$("id", "discordIFrame")
     ).att$("id", "home-container")
   );
 }
@@ -143,7 +148,7 @@ function minecraft() {
     navbar,
     div(
       h1("Join our feature-rich Minecraft server at"),
-      button("BridgeScrims.net").att$("id", "IpButton").onclick$(function () {
+      button(span("BridgeScrims.net")).att$("id", "IpButton").onclick$(function () {
         navigator.clipboard.writeText("bridgescrims.net");
         showCopyMessage()
       },
@@ -152,7 +157,7 @@ function minecraft() {
   );
 }
 function page404() {
-  return div(navbar, h1("404 page"));
+  return div(navbar, div(h1("404 - Page Not Found"), p("Hope you find what you're looking for")).att$("class", "page404"),);
 }
 const r = router({
   "/": home,
