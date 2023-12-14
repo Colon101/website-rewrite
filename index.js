@@ -96,21 +96,22 @@ const navbar = header(
   div(
     a(
       img("assets/img/logo.png").att$("width", "50px").att$("height", "50px")
-    ).att$("href", "#/")).att$("class", "logo"),
+    ).att$("href", "#/")
+  ).att$("class", "logo"),
   div(
     input("checkbox").att$("class", "toggle-menu"),
     div().att$("class", "hamburger"),
     ul(
       li(a("Minecraft").att$("href", "#/minecraft")),
-      li(a("Overlays").att$("href", "#/overlays")),
       li(a("Store").att$("href", "https://store.scrims.network/")),
+      li(a("Overlays").att$("href", "#/overlays")),
       li(a("About").att$("href", "#/about"))
-    ).att$("class", "menu"))
-    .att$("class", "navigation"),
+    ).att$("class", "menu")
+  ).att$("class", "navigation")
 ).att$("class", "header");
 function showCopyMessage() {
-  var copyMessage = document.getElementById('copyMessage');
-  copyMessage.classList.add('show');
+  var copyMessage = document.getElementById("copyMessage");
+  copyMessage.classList.add("show");
 
   // Hide the message after 1 second
   setTimeout(function () {
@@ -119,8 +120,8 @@ function showCopyMessage() {
 }
 
 function hideCopyMessage() {
-  var copyMessage = document.getElementById('copyMessage');
-  copyMessage.classList.remove('show');
+  var copyMessage = document.getElementById("copyMessage");
+  copyMessage.classList.remove("show");
 }
 function home() {
   return div(
@@ -148,16 +149,24 @@ function minecraft() {
     navbar,
     div(
       h1("Join our feature-rich Minecraft server at"),
-      button(span("BridgeScrims.net")).att$("id", "IpButton").onclick$(function () {
-        navigator.clipboard.writeText("bridgescrims.net");
-        showCopyMessage()
-      },
-      ), div("Copied to clipboard!").att$("id", "copyMessage")
+      button(span("BridgeScrims.net"))
+        .att$("id", "IpButton")
+        .onclick$(function () {
+          navigator.clipboard.writeText("bridgescrims.net");
+          showCopyMessage();
+        }),
+      div("Copied to clipboard!").att$("id", "copyMessage")
     ).att$("class", "text-box")
   );
 }
 function page404() {
-  return div(navbar, div(h1("404 - Page Not Found"), p("Hope you find what you're looking for")).att$("class", "page404"),);
+  return div(
+    navbar,
+    div(
+      h1("404 - Page Not Found"),
+      p("Hope you find what you're looking for")
+    ).att$("class", "page404")
+  );
 }
 const r = router({
   "/": home,
