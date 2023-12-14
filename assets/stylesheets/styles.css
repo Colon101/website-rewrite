@@ -77,9 +77,8 @@ iframe {
   #home-container #page-description h1 {
     font-size: 4rem;
   }
-  iframe {
-    max-width: -moz-fit-content;
-    max-width: fit-content;
+  IFrame {
+    width: 80%;
   }
 }
 .text-box, .page404 {
