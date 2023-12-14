@@ -89,9 +89,6 @@ iframe {
 }
 
 @media (max-width: 470px) {
-  #home-container #page-description h1 {
-    font-size: 4rem;
-  }
   IFrame {
     width: 80%;
   }
@@ -342,6 +339,9 @@ iframe {
   }
   #home-container {
     flex-direction: column;
+  }
+  #home-container #page-description h1 {
+    font-size: 5rem;
   }
   iframe {
     max-width: 450px;
