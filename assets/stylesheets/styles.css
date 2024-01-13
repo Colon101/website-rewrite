@@ -297,6 +297,9 @@ iframe {
 }
 
 @media screen and (max-width: 992px) {
+  .menu {
+    padding-top: 81px;
+  }
   ul {
     margin-top: 20px;
     padding-right: 20px;
@@ -319,7 +322,6 @@ iframe {
     top: 0;
     right: -400px;
     background: rgba(0, 0, 0, 0.5);
-    width: 300px;
     height: 100%;
     padding-right: 50px;
     margin-top: 0;
@@ -341,7 +343,9 @@ iframe {
     flex-direction: column;
   }
   #home-container #page-description h1 {
-    font-size: 3rem;
+    font-size: 11vw;
+    max-width: -moz-fit-content;
+    max-width: fit-content;
   }
   iframe {
     max-width: 450px;

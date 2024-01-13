@@ -56,6 +56,7 @@ function router(routes) {
   let result = div();
 
   function syncHash() {
+    uncheckIfChecked()
     let hashLocation = document.location.hash.split("#")[1];
     if (!hashLocation) {
       hashLocation = "/";
@@ -91,29 +92,47 @@ const discordIFrame = iframe(
   .att$(
     "sandbox",
     "allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
-  );
+  )
 const navbar = header(
   div(
     a(
-      img("assets/img/logo.png").att$("width", "50px").att$("height", "50px")
+      img("assets/img/logo.png").att$("width", "50px").att$("height", "50px").onclick$(uncheckIfChecked)
     ).att$("href", "#/")
   ).att$("class", "logo"),
   div(
-    input("checkbox").att$("class", "toggle-menu"),
+    input("checkbox").att$("class", "toggle-menu").att$("id", "hamToggle"),
     div().att$("class", "hamburger"),
     ul(
-      li(a("Minecraft").att$("href", "#/minecraft")),
-      li(a("Store").att$("href", "https://store.scrims.network/")),
-      li(a("Overlays").att$("href", "#/overlays")),
-      li(a("About").att$("href", "#/about"))
+      li(a("Minecraft").att$("href", "#/minecraft")).onclick$(uncheckIfChecked),
+      li(a("Store").att$("href", "https://store.scrims.network/")).onclick$(uncheckIfChecked),
+      li(a("Overlays").att$("href", "#/overlays")).onclick$(uncheckIfChecked),
+      li(a("About").att$("href", "#/about")).onclick$(uncheckIfChecked)
     ).att$("class", "menu")
   ).att$("class", "navigation")
 ).att$("class", "header");
+document.addEventListener("click", function (event) {
+  var navDiv = document.querySelector('.navigation');
+  if (!navDiv.contains(event.target)) {
+    console.log("clicked outside of navdiv")
+    uncheckIfChecked()
+  }
+});
+function uncheckIfChecked() {
+  try {
+    var checkbox = document.getElementById('hamToggle');
+
+    if (checkbox.checked) {
+      checkbox.checked = false;
+    }
+  }
+  catch (e) {
+    console.log("wasnt found yet")
+  }
+}
 function showCopyMessage() {
   var copyMessage = document.getElementById("copyMessage");
   copyMessage.classList.add("show");
 
-  // Hide the message after 1 second
   setTimeout(function () {
     hideCopyMessage();
   }, 1000);

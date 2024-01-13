@@ -214,8 +214,10 @@ iframe {
   text-align: center;
   z-index: 1;
   transition: 0.5s;
+
   li {
     list-style-type: none;
+
     a {
       color: white;
       text-decoration: none;
@@ -295,6 +297,9 @@ iframe {
   right: 0;
 }
 @media screen and (max-width: 992px) {
+  .menu {
+    padding-top: 81px;
+  }
   ul {
     margin-top: 20px;
     padding-right: 20px;
@@ -317,7 +322,7 @@ iframe {
     top: 0;
     right: -400px;
     background: rgba($color: $nav-background, $alpha: 0.5);
-    width: 300px;
+
     height: 100%;
     padding-right: 50px;
     margin-top: 0;
@@ -341,7 +346,8 @@ iframe {
     flex-direction: column;
     #page-description {
       h1 {
-        font-size: 3rem;
+        font-size: 11vw;
+        max-width: fit-content;
       }
     }
   }
