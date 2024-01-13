@@ -6,13 +6,14 @@ $bridge-red: #9c4846;
 $bridge-accent: rgb(96, 96, 189);
 
 @keyframes loading-animation {
-  from {
-    transform: translateY(15px);
-    opacity: 0;
-  }
   to {
-    transform: translateY(0px);
+    opacity: 0;
+    transform: scale(50%);
+  }
+
+  from {
     opacity: 1;
+    transform: scale(100%);
   }
 }
 body,
@@ -42,7 +43,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   color: rgb(0, 0, 0);
-  animation: loading-animation 300ms ease 50ms;
+  animation: loading-animation 0.3 ease;
 }
 
 iframe {
@@ -235,6 +236,7 @@ iframe {
     }
   }
 }
+
 .hamburger {
   position: relative;
   width: 30px;
